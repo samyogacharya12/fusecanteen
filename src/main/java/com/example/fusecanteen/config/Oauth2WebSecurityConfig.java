@@ -44,15 +44,6 @@ public class Oauth2WebSecurityConfig extends WebSecurityConfigurerAdapter {
         return new BCryptPasswordEncoder();
     }
 
-    @Value("${scheduled.rate}")
-    public Long delay;
-
-    @Bean
-    public Long delay() {
-        return delay;
-    }
-
-
     @Override
     @Bean
     public AuthenticationManager authenticationManagerBean() throws Exception {
@@ -76,9 +67,7 @@ public class Oauth2WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/noauth/**").permitAll()
                 .antMatchers("/documents/**").permitAll()
                 .antMatchers("/actuator/**", "/v2/api-docs/**", "/oauth/*").permitAll()
-                .antMatchers("/auth/admin/**").hasAuthority("SYSTEM_ADMIN")
-                .antMatchers("/auth/RELIANCElist/**").hasAnyAuthority("SYSTEM_ADMIN", "ADMIN", "USER")
-                .antMatchers("/auth/**").hasAnyAuthority("SYSTEM_ADMIN", "ADMIN")
+                .antMatchers("/auth/**").hasAnyAuthority("EMPLOYEE", "ADMIN")
                 .antMatchers("/api/**").hasAnyAuthority("ADMIN")
                 .anyRequest()
                 .authenticated()
