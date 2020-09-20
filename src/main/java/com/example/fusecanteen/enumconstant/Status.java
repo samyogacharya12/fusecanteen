@@ -4,8 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public enum Status {
-    ACTIVE("Active"), INACTIVE("Inactive"), DELETED("Deleted"), SUCCESS("Success"),
-    UNSEEN("Unseen"), SEEN("Seen"), Pending("Pending"), InProcess("InProcess"), Ready("Ready");
+    ACTIVE("Active"), INACTIVE("Inactive"), DELETED("Deleted"), SUCCESS("Success"), Pending("Pending"), InProcess("InProcess"), Ready("Ready");
 
     private final String value;
 
