@@ -7,7 +7,7 @@ public enum ResponseStatus {
 
     PENDING("Pending", "P00"),
 
-    AMBIGUOUS("Ambiguous", "A00"),
+    AMBIGUOUS("Ambiguous", "403"),
 
     FAILURE("Failure", "F00"),
 
@@ -25,7 +25,7 @@ public enum ResponseStatus {
 
     CHANGE_TO_SECRET("Change to Secret", "COS"),
 
-    RESOURCE_NOT_FOUND ("Resource not found", "F06");
+    RESOURCE_NOT_FOUND("Resource not found", "404");
 
 
     private ResponseStatus() {

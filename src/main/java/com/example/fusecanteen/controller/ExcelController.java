@@ -42,7 +42,7 @@ public class ExcelController {
         this.orderService = orderService;
     }
 
-    @GetMapping(value = "/createitemexpenses")
+    @GetMapping(value = "/createitemreport")
     public void createItemReport(HttpServletRequest request, HttpServletResponse response) {
 
         List<ItemDto> itemDtoList = itemService.findAll();
