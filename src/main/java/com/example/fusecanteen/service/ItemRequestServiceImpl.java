@@ -15,7 +15,7 @@ import java.util.List;
 @Service
 public class ItemRequestServiceImpl implements ItemRequestService {
 
-    private final static Logger logger = LoggerFactory.getLogger(ItemRequestServiceImpl.class);
+    private static final Logger logger = LoggerFactory.getLogger(ItemRequestServiceImpl.class);
 
     @Autowired
     private final ItemRequestRepository itemRepository;

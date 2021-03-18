@@ -3,7 +3,6 @@ package com.example.fusecanteen.config;
 import com.example.fusecanteen.service.CustomUserDetailsService;
 import com.example.fusecanteen.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -91,7 +90,7 @@ public class Oauth2WebSecurityConfig extends WebSecurityConfigurerAdapter {
         CorsConfiguration config = new CorsConfiguration();
         config.setAllowCredentials(true);
         // *** URL below needs to match the Vue client URL and port ***
-        config.setAllowedOrigins(Collections.singletonList("http://202.51.74.79:8088"));
+        config.setAllowedOrigins(Collections.singletonList("http://localhost:8083"));
         config.setAllowedMethods(Collections.singletonList("*"));
         config.setAllowedHeaders(Collections.singletonList("*"));
         source.registerCorsConfiguration("/**", config);

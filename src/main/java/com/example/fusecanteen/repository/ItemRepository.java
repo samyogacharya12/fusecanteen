@@ -16,6 +16,7 @@ public interface ItemRepository extends JpaRepository<Item, Long> {
     @Query("select i from Item i where i.created between :yesterday and :today")
     List<Item> findByCreatedBetween(@Param(value = "yesterday") Date yesterday, @Param(value = "today") Date today);
 
+    Item findByCode(Double code);
 
 
 }

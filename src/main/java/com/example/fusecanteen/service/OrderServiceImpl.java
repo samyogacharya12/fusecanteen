@@ -17,7 +17,7 @@ import java.util.List;
 @Service
 public class OrderServiceImpl implements OrderService {
 
-    private final static Logger loggerFactory = LoggerFactory.getLogger(OrderServiceImpl.class);
+    private static final Logger loggerFactory = LoggerFactory.getLogger(OrderServiceImpl.class);
 
     @Autowired
     private final OrderMapper orderMapper;
@@ -27,7 +27,6 @@ public class OrderServiceImpl implements OrderService {
 
     @Autowired
     private final CustomerService customerService;
-
 
 
     public OrderServiceImpl(final OrderMapper orderMapper,
@@ -49,11 +48,6 @@ public class OrderServiceImpl implements OrderService {
         return orderMapper.toDto(orderRepository.save(order));
     }
 
-    @Override
-    public OrderDto scheduleOrderStatus(OrderDto orderDto) {
-        return null;
-    }
-
 
     @Override
     public OrderDto updateStatus(OrderDto orderDto) throws InterruptedException {
@@ -64,14 +58,13 @@ public class OrderServiceImpl implements OrderService {
                 orderDto.setCustomer(customerService.save(orderDto.getCustomer()));
                 orderDto = save(orderDto);
             }
-            if(orderDto.getOrderStatus().equalsIgnoreCase(Status.InProcess.toString())){
+            if (orderDto.getOrderStatus().equalsIgnoreCase(Status.InProcess.toString())) {
                 orderDto.setOrderStatus(Status.Ready.toString());
                 Thread.sleep(orderDto.getTime());
                 orderDto.setCustomer(customerService.save(orderDto.getCustomer()));
                 orderDto = save(orderDto);
             }
         }
-
         return orderDto;
     }
 

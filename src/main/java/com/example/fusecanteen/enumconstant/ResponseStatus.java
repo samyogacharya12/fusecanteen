@@ -25,7 +25,9 @@ public enum ResponseStatus {
 
     CHANGE_TO_SECRET("Change to Secret", "COS"),
 
-    RESOURCE_NOT_FOUND("Resource not found", "404");
+    RESOURCE_NOT_FOUND("Resource not found", "404"),
+
+    ALREADY_USED("Code Already Used", "400");
 
 
     private ResponseStatus() {

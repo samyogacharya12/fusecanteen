@@ -2,6 +2,7 @@ package com.example.fusecanteen.errors;
 
 public final class ErrorConstants {
 
+    public static final String DEFAULT_ALREADY_USED= "Code is already used";
     public static final String DEFAULT_INTERNAL_SERVER_ERROR_MESSAGE = "Something went wrong. Please Try again later";
     public static final String DEFAULT_BAD_CREDENTIALS_ERROR_MESSAGE = "Failed to sign in! Please check your credentials and try again.";
     public static final String DEFAULT_NOT_FOUND_ERROR_MESSAGE = "The resource that you are attempting to access does not exist or you don't have the necessary permissions to view it.";

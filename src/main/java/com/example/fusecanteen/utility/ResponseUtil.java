@@ -28,6 +28,14 @@ public class ResponseUtil {
                 .setStatus(ResponseStatus.RESOURCE_NOT_FOUND.getValue());
     }
 
+    public static RestResponse alreadyUsedResponse(){
+        return new RestResponse()
+                .setMessage(ErrorConstants.DEFAULT_ALREADY_USED)
+                .setResponseStatus(ResponseStatus.ALREADY_USED)
+                .setStatus(ResponseStatus.ALREADY_USED.getValue());
+    }
+
+
     public static RestResponse getUnAuthorizedResponse() {
         return new RestResponse()
                 .setMessage(ErrorConstants.DEFAULT_UNAUTHORIZED_ERROR_MESSAGE)

@@ -9,6 +9,8 @@ public interface ItemService {
 
     ItemDto save(ItemDto itemDto);
 
+    Boolean findItemByCode(Double code);
+
 
     List<ItemDto> findByCreated();
 
