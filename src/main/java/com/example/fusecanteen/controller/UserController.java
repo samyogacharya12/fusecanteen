@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api")
 public class UserController {
 
     @Autowired
@@ -21,19 +20,26 @@ public class UserController {
         this.userService = userService;
     }
 
-    @PostMapping("/user")
+    @PostMapping("/api/user")
     public ResponseEntity<?> save(@RequestBody UserDto userDto) {
         userDto = userService.save(userDto);
         return new ResponseEntity<>(userDto, HttpStatus.OK);
     }
 
 
-    @GetMapping("/user")
+    @GetMapping("/api/users")
     public ResponseEntity<?> findAll() {
         List<UserDto> userDtoList = userService.findAll();
         return new ResponseEntity<>(userDtoList, HttpStatus.OK);
 
     }
+
+    @GetMapping("/noauth/user/{username}")
+    public ResponseEntity<?> findByUserName(@PathVariable String username){
+       UserDto userDto=userService.getUserByUsername(username);
+       return new ResponseEntity<>(userDto, HttpStatus.OK);
+    }
+
 
 
 }

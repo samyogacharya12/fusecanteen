@@ -8,8 +8,6 @@ public interface OrderService {
 
     OrderDto save(OrderDto orderDto);
 
-    OrderDto scheduleOrderStatus(OrderDto orderDto);
-
     OrderDto updateStatus(OrderDto orderDto) throws InterruptedException;
 
     OrderDto findById(Long id);
