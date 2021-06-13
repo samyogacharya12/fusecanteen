@@ -7,11 +7,12 @@ import com.example.fusecanteen.enumconstant.Months;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.time.ZonedDateTime;
 
 @Entity
 @Table(name = "relate_bs_ad")
-public class RelateBsAd implements Serializable {
+public class MultiCalendar implements Serializable {
 
 
     private static final long serialVersionUID = 1L;
@@ -57,6 +58,13 @@ public class RelateBsAd implements Serializable {
     private Months months;
 
 
+    @Column(name = "bs_date", nullable = false)
+    private String bsDate;
+
+
+    @Column(name = "ad_date", nullable = false)
+    private LocalDate adDate;
+
 
 
     public Long getId() {
@@ -65,6 +73,26 @@ public class RelateBsAd implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+
+
+
+
+    public String getBsDate() {
+        return bsDate;
+    }
+
+    public void setBsDate(String bsDate) {
+        this.bsDate = bsDate;
+    }
+
+    public LocalDate getAdDate() {
+        return adDate;
+    }
+
+    public void setAdDate(LocalDate adDate) {
+        this.adDate = adDate;
     }
 
     public User getCreatedBy() {
