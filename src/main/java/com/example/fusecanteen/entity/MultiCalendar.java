@@ -11,7 +11,7 @@ import java.time.LocalDate;
 import java.time.ZonedDateTime;
 
 @Entity
-@Table(name = "relate_bs_ad")
+@Table(name = "multi_calendar")
 public class MultiCalendar implements Serializable {
 
 
@@ -24,11 +24,13 @@ public class MultiCalendar implements Serializable {
 
 
     @Column(name = "created_by")
-    private User createdBy;
+    @NotNull
+    private String createdBy;
 
 
     @Column(name = "last_modified_by")
-    private User lastModifiedBy;
+    @NotNull
+    private String lastModifiedBy;
 
 
     @NotNull
@@ -53,9 +55,9 @@ public class MultiCalendar implements Serializable {
 
 
     @NotNull
-    @Column(name = "months", nullable = false)
+    @Column(name = "month", nullable = false)
     @Enumerated(EnumType.STRING)
-    private Months months;
+    private Months month;
 
 
     @Column(name = "bs_date", nullable = false)
@@ -95,19 +97,19 @@ public class MultiCalendar implements Serializable {
         this.adDate = adDate;
     }
 
-    public User getCreatedBy() {
+    public String getCreatedBy() {
         return createdBy;
     }
 
-    public void setCreatedBy(User createdBy) {
+    public void setCreatedBy(String createdBy) {
         this.createdBy = createdBy;
     }
 
-    public User getLastModifiedBy() {
+    public String getLastModifiedBy() {
         return lastModifiedBy;
     }
 
-    public void setLastModifiedBy(User lastModifiedBy) {
+    public void setLastModifiedBy(String lastModifiedBy) {
         this.lastModifiedBy = lastModifiedBy;
     }
 
@@ -151,11 +153,12 @@ public class MultiCalendar implements Serializable {
         this.days = days;
     }
 
-    public Months getMonths() {
-        return months;
+
+    public Months getMonth() {
+        return month;
     }
 
-    public void setMonths(Months months) {
-        this.months = months;
+    public void setMonth(Months month) {
+        this.month = month;
     }
 }

@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 @Mapper(componentModel = "spring")
 public interface OrderMapper extends EntityMapper<OrderDto, OrderItem> {
 
+
     OrderDto toDto(OrderItem order);
 
     OrderItem toEntity(OrderDto orderDto);

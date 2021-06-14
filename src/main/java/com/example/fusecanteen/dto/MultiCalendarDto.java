@@ -30,26 +30,27 @@ public class MultiCalendarDto implements Serializable {
     private String month;
 
 
-    private Long createdById;
 
 
     private String createdBy;
 
 
-    private Long updatedById;
 
 
     private int totalDays;
 
 
 
-    private Long updatedBy;
+    private String lastModifiedBy;
 
 
     private String bsDate;
 
 
     private LocalDate adDate;
+
+    private List<MultiCalendarMonth> multiCalendarMonthList;
+
 
 
     public LocalDate getTodayDate() {
@@ -68,7 +69,6 @@ public class MultiCalendarDto implements Serializable {
         this.totalDays = totalDays;
     }
 
-    private List<MultiCalendarMonth> multiCalendarMonthList;
 
 
     public List<MultiCalendarMonth> getMultiCalendarMonthList() {
@@ -153,13 +153,7 @@ public class MultiCalendarDto implements Serializable {
         this.month = month;
     }
 
-    public Long getCreatedById() {
-        return createdById;
-    }
 
-    public void setCreatedById(Long createdById) {
-        this.createdById = createdById;
-    }
 
     public String getCreatedBy() {
         return createdBy;
@@ -169,19 +163,13 @@ public class MultiCalendarDto implements Serializable {
         this.createdBy = createdBy;
     }
 
-    public Long getUpdatedById() {
-        return updatedById;
+
+
+    public String getLastModifiedBy() {
+        return lastModifiedBy;
     }
 
-    public void setUpdatedById(Long updatedById) {
-        this.updatedById = updatedById;
-    }
-
-    public Long getUpdatedBy() {
-        return updatedBy;
-    }
-
-    public void setUpdatedBy(Long updatedBy) {
-        this.updatedBy = updatedBy;
+    public void setLastModifiedBy(String lastModifiedBy) {
+        this.lastModifiedBy = lastModifiedBy;
     }
 }

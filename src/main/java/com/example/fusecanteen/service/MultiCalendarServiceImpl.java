@@ -6,6 +6,7 @@ import com.example.fusecanteen.enumconstant.Days;
 import com.example.fusecanteen.enumconstant.Months;
 import com.example.fusecanteen.mapper.MultiCalendarMapper;
 import com.example.fusecanteen.repository.MultiCalendarRepository;
+import com.example.fusecanteen.utility.SecurityUtility;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
@@ -41,7 +42,8 @@ public class MultiCalendarServiceImpl implements MultiCalendarService {
         try {
             AtomicReference<LocalDate> todayDate = new AtomicReference<>(
                     multiCalendarDto.getAdDate().minusDays(1));
-            AtomicReference<String> bsDate = new AtomicReference<>(multiCalendarDto.getBsDate());
+            AtomicReference<String> bsDate = new AtomicReference<>(multiCalendarDto.
+                    getBsDate());
             AtomicReference<MultiCalendarDto> multiCalendarDtoAtomicReference =
                     new AtomicReference<>(new MultiCalendarDto());
             multiCalendarDto.getMultiCalendarMonthList().forEach(multiCalendarMonth -> {
@@ -151,11 +153,12 @@ public class MultiCalendarServiceImpl implements MultiCalendarService {
             MultiCalendar savingRelate = new MultiCalendar();
             savingRelate.setAdDate(lastAdDate);
             savingRelate.setBsDate(bsDate);
-            savingRelate.setMonths(month);
+            savingRelate.setMonth(month);
             savingRelate.setCreatedDate(ZonedDateTime.now());
             savingRelate.setUpdatedDate(ZonedDateTime.now());
             savingRelate.setStatus(true);
-
+            savingRelate.setCreatedBy(SecurityUtility.getUserName());
+            savingRelate.setLastModifiedBy(SecurityUtility.getUserName());
 
             savingRelate.setDays(day);
             savingRelate = multiCalendarRepository.save(savingRelate);

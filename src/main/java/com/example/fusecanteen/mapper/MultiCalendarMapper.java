@@ -9,7 +9,11 @@ import org.springframework.stereotype.Service;
 @Mapper(componentModel = "spring")
 public interface MultiCalendarMapper extends EntityMapper<MultiCalendarDto, MultiCalendar> {
 
+
+
+
    MultiCalendarDto toDto(MultiCalendar multiCalendar);
+
 
    MultiCalendar toEntity(MultiCalendarDto multiCalendarDto);
 
