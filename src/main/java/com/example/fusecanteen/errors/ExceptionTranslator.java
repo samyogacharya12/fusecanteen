@@ -31,6 +31,7 @@ public class ExceptionTranslator {
         return new ResponseEntity<>(ResponseUtil.getBadRequestResponse(ErrorConstants.DEFAULT_BAD_CREDENTIALS_ERROR_MESSAGE, null), HttpStatus.BAD_REQUEST);
     }
 
+
     @ExceptionHandler(InsufficientAuthenticationException.class)
     public ResponseEntity<RestResponse> InsufficientAuthenticationExceptionHandler() {
         return new ResponseEntity<>(ResponseUtil.getUnAuthorizedResponse(), HttpStatus.UNAUTHORIZED);
