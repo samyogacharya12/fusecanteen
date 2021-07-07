@@ -1,13 +1,16 @@
 package com.example.fusecanteen.utility;
 
+import com.example.fusecanteen.entity.User;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.security.SecureRandom;
+import java.util.Optional;
 import java.util.Random;
 
 @Service
@@ -55,5 +58,8 @@ public class SecurityUtility {
             return userName;
         } else return null;
     }
+
+
+
 
 }

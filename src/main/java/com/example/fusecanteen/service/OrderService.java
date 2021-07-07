@@ -14,4 +14,7 @@ public interface OrderService {
 
     List<OrderDto> findAll();
 
+
+    List<OrderDto> filter(String startDate, String endDate);
+
 }

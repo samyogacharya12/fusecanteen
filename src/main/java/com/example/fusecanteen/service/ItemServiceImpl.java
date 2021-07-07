@@ -36,15 +36,6 @@ public class ItemServiceImpl implements ItemService {
     @Override
     public ItemDto save(ItemDto itemDto) {
         loggerFactory.debug("saving item");
-        validation(itemDto);
-        itemDto.setCreatedBy(SecurityUtility.getUserName());
-        itemDto.setLastModifiedBy(SecurityUtility.getUserName());
-        Item item = itemMapper.toEntity(itemDto);
-        return itemMapper.toDto(itemRepository.save(item));
-    }
-
-
-    private void validation(ItemDto itemDto) {
         if (StringUtils.isBlank(itemDto.getName())) {
             throw new Invalid("name cannot be null", itemDto);
         }
@@ -64,7 +55,19 @@ public class ItemServiceImpl implements ItemService {
         if (StringUtils.isBlank(itemDto.getExpiryDate())) {
             throw new Invalid("expiry date cannot be blank", itemDto);
         }
+        try {
+            itemDto.setCreatedBy(SecurityUtility.getUserName());
+            itemDto.setLastModifiedBy(SecurityUtility.getUserName());
+            Item item = itemMapper.toEntity(itemDto);
+            return itemMapper.toDto(itemRepository.save(item));
+        } catch (Exception e){
+            loggerFactory.error(e.getMessage());
+        }
+        return null;
     }
+
+
+
 
     @Override
     public List<ItemDto> findByCreated() {
