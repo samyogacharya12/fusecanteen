@@ -3,7 +3,7 @@ agent any
 stages {
 stage(‘---build---’) {
 steps {
-sh “gradle build”
+sh “./gradlew build
 }
 }
 }
