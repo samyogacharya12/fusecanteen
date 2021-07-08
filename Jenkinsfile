@@ -1,7 +1,7 @@
-﻿pipeline{
+﻿pipeline {
 agent any
 stages {
-stage(‘---clean---’){
+stage(‘---build---’) {
 steps {
 sh “gradle clean build”
 }
