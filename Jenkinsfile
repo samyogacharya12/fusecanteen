@@ -1,4 +1,5 @@
 ﻿pipeline {
+  agent {
   stages {
     stage('Build') {
       steps {
@@ -41,4 +42,5 @@
   environment {
     GRADLE_USER_HOME = '/jenkins/.gradle'
   }
+}
 }
